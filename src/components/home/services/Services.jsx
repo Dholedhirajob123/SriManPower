@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Services.css";
 import Header from "../../common/header/Header";
 
@@ -115,13 +115,25 @@ const HousekeepingServices = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filteredServices, setFilteredServices] = useState(services);
 
+  useEffect(() => {
+    // Check if URL hash matches services section
+    if (window.location.hash === "#services") {
+      const servicesSection = document.getElementById("services");
+      if (servicesSection) {
+        servicesSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
+
   const handleServiceClick = (service) => {
     setSelectedService(service);
     setIsModalOpen(true);
+    document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    document.body.style.overflow = "auto"; // Re-enable scrolling
   };
 
   const handleSearch = (searchTerm) => {
@@ -139,7 +151,7 @@ const HousekeepingServices = () => {
     <>
       <Header onSearch={handleSearch} />
       
-      <section className="services-section">
+      <section className="services-section" id="services">
         <div className="dark-overlay"></div>
         <div className="particles-background"></div>
         
@@ -158,12 +170,15 @@ const HousekeepingServices = () => {
                 className="service-card"
                 key={service.id}
                 onClick={() => handleServiceClick(service)}
+                tabIndex="0"
+                role="button"
+                aria-label={`View details about ${service.title}`}
+                onKeyPress={(e) => e.key === "Enter" && handleServiceClick(service)}
               >
                 <div className="card-icon">
                   <i className={`${service.icon}`}></i>
                 </div>
                 <h3 className="service-title">{service.title}</h3>
-                {/* <p className="service-description">{service.description}</p> */}
                 <div className="learn-more">
                   Learn More <i className="fas fa-chevron-right"></i>
                 </div>
@@ -176,7 +191,11 @@ const HousekeepingServices = () => {
         {isModalOpen && selectedService && (
           <div className="modal-overlay" onClick={closeModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="close-button" onClick={closeModal}>
+              <button 
+                className="close-button" 
+                onClick={closeModal}
+                aria-label="Close modal"
+              >
                 &times;
               </button>
               
@@ -193,12 +212,6 @@ const HousekeepingServices = () => {
                   <p>{selectedService.details}</p>
                 </div>
               </div>
-              
-              {/* <div className="modal-footer">
-                <button className="cta-button" onClick={closeModal}>
-                  Close
-                </button>
-              </div> */}
             </div>
           </div>
         )}
