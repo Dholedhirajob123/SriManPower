@@ -104,6 +104,8 @@ header {
   font-size: 1.2rem;
   cursor: pointer;
   transition: color 0.3s ease;
+  font-weight: 4rem;
+  margin-left: 150px;
 }
 
 .search-icon:hover,
