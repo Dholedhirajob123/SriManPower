@@ -69,7 +69,88 @@ header {
   font-weight: 500;
 }
 
+<<<<<<< HEAD
 /* Search Container - Updated for responsiveness */
+=======
+.nav ul li a:hover {
+  color: #3498db;
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-icon,
+.mobile-toggle {
+  background: none;
+  border: none;
+  color: #2c3e50;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-weight: 4rem;
+  margin-left: 150px;
+}
+
+.search-icon:hover,
+.mobile-toggle:hover {
+  color: #3498db;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #2c3e50;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #3498db;
+}
+
+.signin-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.signin-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Search Form Styles */
+.search-app{
+  margin: 50px;
+}
+.serach{
+  border: 2px solid rgb(7, 7, 7);
+  padding: 10px;
+  font-size: 20px;
+}
+.list{
+  padding: 0;
+  list-style: none;
+  text-align: center;
+
+}
+.listItem{
+  margin-bottom: 20px;
+  font-size: 25px;
+  color: #444;
+  font-weight: 300;
+}
+>>>>>>> 6bb0c795060a4d135c7e5a4648aa3daa3d4141ca
 .search-container {
   position: relative;
   width: 200px; /* Default width for desktop */
