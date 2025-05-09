@@ -67,7 +67,7 @@
 
 /* Card Styling with Hover Effects */
 .service-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(248, 242, 242, 0.952);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 15px;
@@ -79,7 +79,8 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  z-index: 1;
+  z-index: 2;
+  flex-wrap: wrap;
 }
 
 /* Card Hover Animation */
@@ -120,15 +121,17 @@
 /* Learn More Link */
 .learn-more {
   color: rgba(238, 34, 34, 0.8);
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
+  font-weight: 800;
   transition: all 0.3s ease;
+display: flex;
+/* margin-top: 50px; */
+margin-right: 80px;
 }
 
 .learn-more i {
-  margin-left: 8px;
+  margin-left: 5px;
   transition: transform 0.3s ease;
+  margin-top: 6px;
 }
 
 .service-card:hover .learn-more {
@@ -202,13 +205,13 @@
 
 .modal-header {
   text-align: center;
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
 }
 
 .modal-icon-circle {
   width: 90px;
   height: 90px;
-  margin: 0 auto 20px;
+  margin-left: 200px;
   background: rgba(231, 76, 60, 0.1);
   border-radius: 50%;
   display: flex;
@@ -221,15 +224,17 @@
 
 .modal-title {
   font-size: 1.8rem;
-  color: #000000;
+  color: #000;
   font-weight: 600;
-  margin-bottom: 10px;
+  /* margin-top: 120px; */
+  text-align: center;
+  /* border:2px solid red; */
 }
 
 .modal-description {
   font-weight: 600;
   color: rgba(17, 17, 17, 0.8);
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   text-align: center;
   font-size: 1.1rem;
 }

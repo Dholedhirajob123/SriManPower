@@ -203,9 +203,9 @@ const HousekeepingServices = () => {
                 <div className="modal-icon-circle">
                   <i className={`${selectedService.icon}`}></i>
                 </div>
-                <h3 className="modal-title">{selectedService.title}</h3>
+                
               </div>
-              
+              <h3 className="modal-title">{selectedService.title}</h3>
               <div className="modal-body">
                 <p className="modal-description">{selectedService.description}</p>
                 <div className="modal-details">

@@ -2,7 +2,6 @@ import React from 'react';
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import './contact.css';
-import contactImage from '../../assests/contact-img.jpg';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 
 const Contact = () => {
@@ -11,9 +10,9 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    const publicKey = "c51mRloZzcm3rJJ2a";
-    const serviceId = "service_lz8ugom";
-    const templateId = "template_1usvogw";
+    const publicKey = "sMFePeAslhs2AUbrv";
+    const serviceId = "service_fppy3ig";
+    const templateId = "template_aapoajx";
 
     emailjs
       .sendForm(serviceId, templateId, form.current, {
@@ -78,6 +77,7 @@ const Contact = () => {
                     name="phone"
                     required
                     placeholder="Your phone number"
+                    
                   />
                 </div>
 
@@ -86,29 +86,29 @@ const Contact = () => {
                   <select
                     id="service"
                     name="service"
-                    required
+                    required 
                   >
                     <option value="">Select a service</option>
                     <option value="general">General Housekeeping</option>
-                    <option value="deep">Deep Cleaning</option>
-                    <option value="office">Office Cleaning</option>
-                    <option value="move">Move In/Out Cleaning</option>
-                    <option value="regular">Regular Maintenance</option>
-                    <option value="commercial">Commercial Cleaning</option>
-                    <option value="event">Post-Event Cleaning</option>
+                    <option value="Baby Care">Baby Care</option>
+                    <option value="HVAC Services">HVAC Services</option>
+                    <option value="Appliance Repair">Appliance Repair</option>
+                    <option value="Gardening">Gardening</option>
+                    <option value="Painting">Painting</option>
+                    <option value="Carpentry">Carpentry</option>
                     <option value="other">Other Service</option>
                   </select>
                 </div>
               </div>
 
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="preferred-date">Preferred Service Date</label>
                 <input
                   type="date"
                   id="preferred-date"
-                  name="preferred-date"
+                    name="preferred-date"
                 />
-              </div>
+              </div> */}
 
               <div className="form-group">
                 <label htmlFor="address">Service Address (if known)</label>
@@ -131,15 +131,6 @@ const Contact = () => {
                 ></textarea>
               </div>
 
-              <div className="form-group checkbox-group">
-                <input
-                  type="checkbox"
-                  id="newsletter"
-                  name="newsletter"
-                />
-                <label htmlFor="newsletter">Subscribe to our newsletter for cleaning tips and special offers</label>
-              </div>
-
               <button type="submit" className="submit-btn">
                 Submit Request
               </button>
@@ -148,14 +139,6 @@ const Contact = () => {
 
           {/* Contact Information - Right Side */}
           <div className="contact-info-section">
-            {/* <div className="contact-image-container">
-              <img 
-                src={contactImage} 
-                alt="Professional cleaning service" 
-                className="contact-image"
-              />
-            </div> */}
-            
             <div className="contact-details">
               <h3>Our Contact Information</h3>
               
@@ -208,10 +191,10 @@ const Contact = () => {
                 <h4>Service Areas</h4>
                 <p>We serve all major areas in Clean City and surrounding communities including:</p>
                 <ul>
-                  <li>Sparkle Town</li>
-                  <li>Fresh Ville</li>
-                  <li>Neat Borough</li>
-                  <li>Tidy County</li>
+                  <li>Delhi</li>
+                  <li>Maharashtra</li>
+                  <li>Gujarat</li>
+                  <li>Goa</li>
                 </ul>
               </div>
             </div>

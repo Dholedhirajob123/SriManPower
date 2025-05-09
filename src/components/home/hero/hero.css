@@ -5,9 +5,9 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  height: 80vh;
+  height: 150vh;
   min-height: 500px;
-  max-height: 800px;
+  max-height: 1000px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 

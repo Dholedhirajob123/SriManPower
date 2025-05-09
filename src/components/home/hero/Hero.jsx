@@ -9,8 +9,8 @@ const HousekeepingHero = () => {
   const slides = [
     {
       id: 1,
-      title: "Reliable Cleaning Every Time",
-      subtitle: "House Keeping Services",
+      title: "Welcome",
+      subtitle: "Sri Man Power",
       description: "We are seeking a reliable and detail-oriented Housekeeper to maintain a clean, sanitary, and orderly environment.",
       image: "https://plus.unsplash.com/premium_photo-1661662917928-b1a42a08d094?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fGNsZWFuaW5nfGVufDB8fDB8fHww"
     },

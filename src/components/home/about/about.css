@@ -1,4 +1,10 @@
 /* Main Container */
+html {
+  scroll-behavior: smooth;
+}
+#about {
+  scroll-margin-top: 20px; /* Adjust based on your header height */
+}
 .about-housekeeping {
   padding: 4rem 2rem;
   background: #f8f9fa;
