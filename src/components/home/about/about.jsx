@@ -2,11 +2,19 @@ import React from "react";
 import "./about.css"; // Custom CSS
 import aboutImg from "../../assests/img1.jpg"; // Main image
 import service1 from "../../assests/img2.jpg"; // Sub-image 1
-import service2 from "../../assests/img3.jpg"; // Sub-image 2
+import service2 from "../../assests/pic 1.jpg"; // Sub-image 2
 
 const About = () => {
   return (
     <section className="about-housekeeping">
+      {/* New About Us Title Section */}
+      <div className="about-us-header">
+        <h1>About Us</h1>
+         <div className="heading-line"></div>
+        <p className="subtitle">Professional Cleaning Services </p>
+        <div className="header-divider"></div>
+      </div>
+
       <div className="about-container">
         {/* Left: Text Content */}
         <div className="about-text">
@@ -25,6 +33,11 @@ const About = () => {
             <li>✅ 24/7 emergency services</li>
             <li>✅ Affordable monthly packages</li>
           </ul>
+             {/* Bottom: Service Gallery */}
+      <div className="service-gallery">
+        <img src={service1} alt="Office Cleaning Service" />
+        <img src={service2} alt="Home Deep Cleaning" />
+      </div>
         </div>
 
         {/* Right: Main Image */}
@@ -36,11 +49,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* Bottom: Service Gallery */}
-      <div className="service-gallery">
-        <img src={service1} alt="Office Cleaning Service" />
-        <img src={service2} alt="Home Deep Cleaning" />
-      </div>
+   
     </section>
   );
 };

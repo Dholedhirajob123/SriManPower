@@ -5,6 +5,7 @@ html {
 
 section {
   scroll-margin-top: 100px;
+  
 }
 
 header {
@@ -14,65 +15,103 @@ header {
   width: 100%;
   top: 0;
   z-index: 1000;
+  
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 .flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 0;
+  padding: 10px 0;
+
+  
 }
 
 /* Logo Styles */
 .logo-link {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: -2px;
   text-decoration: none;
   color: inherit;
+  /* border: 2px solid red ; */
 }
-
+.logo {
+  background-color: rgba(241, 233, 233, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
 .logo-img {
-  width: 200px;
+  width: 300px;
   height: 110px;
   object-fit: cover;
-}
+} 
 
 .logo-text h1 {
   margin: 0;
+ 
   font-size: 1.5rem;
-  font-weight: bold;
+  padding: .2rem;
+  font-weight: 800;
+
+    color: #000;
 }
 
 .logo-text .tagline {
   margin: 0;
-  font-size: 0.8rem;
-  color: #666;
+  font-size:0.9rem;
+  color: #383838;
+  font-weight: 600;
+
 }
 
 /* Navigation */
 .nav ul {
   display: flex;
-  gap: 20px;
+  gap: 50px;
   list-style: none;
+
+        
 }
 
 .nav ul li a {
   text-decoration: none;
-  color: #333;
+  color: #161616;
   font-weight: 500;
+  font-size: x-large;
+  position: relative; /* Needed for the underline effect */
+  padding-bottom: 5px; /* Space for underline */
+  transition: all 0.3s ease; /* Smooth transition for hover and active states */
 }
-
 
 .nav ul li a:hover {
   color: #3498db;
 }
+
+/* Underline effect when clicked/active */
+.nav ul li a.active {
+  color: #3498db; /* Same as hover color or choose different */
+}
+
+.nav ul li a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #3498db; /* Same as hover color */
+  animation: underline 0.3s ease-out; /* Animation when appearing */
+}
+
+
+
 
 /* Header Actions */
 .header-actions {
@@ -112,21 +151,7 @@ header {
   color: #3498db;
 }
 
-.signin-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 15px;
-  background-color: #3498db;
-  color: white;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
 
-.signin-btn:hover {
-  background-color: #2980b9;
-}
 
 /* Search Form Styles */
 .search-app{
@@ -135,7 +160,7 @@ header {
 .serach{
   border: 2px solid rgb(7, 7, 7);
   padding: 10px;
-  font-size: 20px;
+  font-size: 2rem;
 }
 .list{
   padding: 0;
@@ -143,17 +168,17 @@ header {
   text-align: center;
 
 }
-.listItem{
-  margin-bottom: 20px;
-  font-size: 25px;
-  color: #444;
-  font-weight: 300;
-}
 
 .search-container {
   position: relative;
-  width: 200px; /* Default width for desktop */
+  width: 300px; /* Default width for desktop */
   margin-left: 20px;
+  border-radius:50px;
+  color:#000000;
+  font-size: 1.4bbrem;
+
+  
+
 }
 
 .search-icon {
@@ -161,7 +186,8 @@ header {
   right: 5px;
   top: 50%;
   transform: translateY(-50%);
-  color: #14848b;
+  color: #11c6d3;
+  font-weight: 400;
   pointer-events: none; /* Allows clicks to pass through to input */
 }
 
@@ -171,7 +197,18 @@ header {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+/* No results message styling */
+.no-results-message {
+  padding: 12px 15px;
+  color: #000000;
+  font-style: italic;
+  cursor: default;
+  font-size: 1.2rem;
+}
 
+.no-results-message:hover {
+  background-color: transparent;
+}
 /* Mobile styles */
 .menu-icon {
   display: none;
@@ -196,8 +233,8 @@ header {
 
 /* Logo styles */
 .whatsapp-logo {
-  width: 190px;
-  height: 190px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   transition: all 0.5s ease;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
@@ -211,7 +248,163 @@ header {
   animation: pulse 2s infinite;
 }
 
+.service-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
+.service-dialog {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.dialog-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 1rem;
+}
+
+.dialog-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.dialog-body {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.dialog-description {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.dialog-details h4 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.dialog-details p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.dialog-button {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  transition: all 0.2s;
+}
+
+.contact-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.contact-button:hover {
+  background-color: #3e8e41;
+}
+
+.close-button {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.close-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .service-dialog {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  .dialog-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .dialog-actions {
+    justify-content: center;
+  }
+}
+/* Search suggestions dropdown */
+.search-container {
+  position: relative;
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
+}
+
+.search-suggestions li {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-suggestions li:hover {
+  background-color: #f5f5f5;
+}
+
+/* Make sure the search container doesn't get too small on mobile */
+@media (max-width: 768px) {
+  .search-container {
+    min-width: 150px;
+  }
+}
 
 
 
@@ -240,7 +433,7 @@ header {
     height: 18vh;
     background-color: white;
     padding: 15px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;    /* border: 2px solid red; */
   }
 
   .nav.open {
@@ -259,7 +452,7 @@ header {
   .search-container {
     order: 5; /* Move search to bottom in mobile */
     width: 50%;
-    margin:-20px 0 0 150px;
+    margin:35px 0 0 150px;
     display: none; /* Hidden by default on mobile */
   }
 

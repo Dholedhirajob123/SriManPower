@@ -1,87 +1,175 @@
-/* Main Container */
-html {
-  scroll-behavior: smooth;
-}
-#about {
-  scroll-margin-top: 20px; /* Adjust based on your header height */
-}
+/* About Section Styling */
 .about-housekeeping {
   padding: 4rem 2rem;
-  background: #f8f9fa;
+  background: #ffffff;
 }
 
 .about-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto 2rem;
+  justify-content: space-between;
+  max-width: 2800px;
+  margin: 0 auto 3rem;
+  gap: 2rem;
+  /* border:2px solid red; */
+  padding: 25px;
 }
 
-/* Text Section */
+/* Text Content Styling */
 .about-text {
   flex: 1;
   min-width: 300px;
 }
 
+.about-us-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about-us-header h1 {
+ font-size: 2.5rem; 
+  font-weight: 700; 
+  margin-bottom: 0.5rem;
+    color:var(--orange);
+  letter-spacing: 1.5px;
+  font-family: "Ancizar Serif", serif;
+   letter-spacing: 1.5px;
+   
+}
+.heading-line {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  margin: 0 auto 1rem;
+  border-radius: 2px;
+}
+.subtitle{
+   font-size: 1.5rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-family: "Ancizar Serif", serif;
+  text-transform: capitalize;
+}
+
 .about-text h2 {
-  font-size: 2.2rem;
-  color: #2a3f54;
+  font-size: 2.5rem;
   margin-bottom: 1.5rem;
+  color: #2A67B2; /* Blue heading */
+  position: relative;
+  padding-bottom: 0.5rem;
+  font-weight: 700;
+  font-family: "Ancizar Serif", serif;
+
+}
+
+
+.about-text h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background-color:#EB9336 ; /* Orange underline */
+}
+
+.about-text h3 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem;
+  color: #2A67B2; /* Blue subheading */
+    font-family: "Ancizar Serif", serif;
+    font-weight: 700;
+
+}
+.about-text h3{
+    font-size: 1.5rem;
+  margin: 1.5rem 0 1rem;
+  color: #2A67B2; /* Blue subheading */
+    font-family: "Ancizar Serif", serif;
+    font-weight: 700;
 }
 
 .about-text p {
-  color: #555;
   line-height: 1.7;
+  color:  #111827;
   margin-bottom: 1.5rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+  /* border: 1px solid red; */
 }
 
 .about-text ul {
-  padding-left: 1.2rem;
-  color: #444;
+  list-style-type: none;
+  padding: 0;
 }
 
 .about-text li {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1.8rem;
+  position: relative;
+  line-height: 1.7;
+     color: #111827;
+   font-weight:500;
+   font-size: 1.3rem;
 }
 
-/* Main Image */
+.about-text li::before {
+  /* content: '✓'; */
+  position: absolute;
+  left: 0;
+  color: #EB9336; /* Orange checkmarks */
+  font-weight: bold;
+}
+
+/* Main Image Styling */
 .about-img-main {
   flex: 1;
   min-width: 300px;
-  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.6), 0 0 25px rgba(0, 123, 255, 0.4); /* Blue glow */
+    border: 2px solid rgba(255, 255, 255, 0.8); /* A subtle white border */
+
 }
 
 .about-img-main img {
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
-/* Service Gallery */
-.service-gallery {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.service-gallery img {
-  width: 280px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.3s;
-}
-
-.service-gallery img:hover {
+.about-img-main img:hover {
   transform: scale(1.03);
 }
 
-/* Mobile Responsive */
+/* Service Gallery Styling */
+.service-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px; 
+  flex-wrap: wrap;
+
+}
+
+.service-gallery img {
+  width: calc(50% - 1rem);
+  min-width: 300px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+}
+
+.service-gallery img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .about-container {
     flex-direction: column;
@@ -89,7 +177,5 @@ html {
   
   .service-gallery img {
     width: 100%;
-    max-width: 350px;
   }
 }
-

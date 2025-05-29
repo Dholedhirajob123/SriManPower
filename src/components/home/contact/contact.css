@@ -1,8 +1,10 @@
 /* General section styling */
 .contact-housekeeping {
-  background-color: #111827; /* Dark background */
-  color: #f9fafb; /* Light text */
+  /* background-color: #ffffff; Dark background */
+  color: #000000; /* Light text */
   padding: 4rem 1rem;
+  background: linear-gradient(45deg, #f3e7e9, #e3eeff, #e7f3e9, #fff5e3);
+
 }
 
 .section-header {
@@ -10,15 +12,33 @@
   margin-bottom: 3rem;
 }
 
-.section-header h2 {
+.section-header h1 {
   font-size: 2.5rem;
-  color: #facc15;
+  color: #EB9336;
+  font-weight: 700;
   margin-bottom: 0.5rem;
+    font-family: "Ancizar Serif", serif;
+    letter-spacing: 1.5px;
+
+}
+.heading-line {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  margin: 0 auto 1rem;
+  border-radius: 2px;
 }
 
 .section-header p {
-  font-size: 1.1rem;
-  color: #cbd5e1;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-family: "Ancizar Serif", serif;
+  text-transform: capitalize;
+
+   
 }
 
 .contact-container {
@@ -42,8 +62,13 @@
 
 .contact-form h3,
 .contact-info-section h3 {
-  color: #facc15;
+   font-size: 2.5rem;
   margin-bottom: 1.5rem;
+  color: #2A67B2; /* Blue heading */
+  position: relative;
+  padding-bottom: 0.5rem;
+  font-weight: 700;
+  font-family: "Ancizar Serif", serif;
 }
 
 /* Form styles */
@@ -60,11 +85,12 @@
 }
 
 .form-group label {
+   font-family: "Ancizar Serif", serif;
   display: block;
-  font-size: 18px;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-  color: #00060c;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+    color: #111827;
 }
 
 input[type="text"],
@@ -103,23 +129,25 @@ textarea {
 
 .checkbox-group label {
   font-size: 0.9rem;
-  color: #cbd5e1;
+  color: #1655a1;
 }
 
 /* Submit Button */
 .submit-btn {
-  background-color: #facc15;
-  color: #111827;
-  font-weight: 600;
+ background-color:#EB9336;
+  color: #271111;
+  font-weight: 700;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
   transition: background 0.3s ease;
+  font-size: 18px;
+box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
 
 .submit-btn:hover {
-  background-color: #eab308;
+  background-color:#2A67B2 ;
 }
 
 /* Contact Info Styles */
@@ -138,25 +166,46 @@ textarea {
 .contact-icon {
   font-size: 1.5rem;
   color: #facc15;
+
 }
 
-.contact-text h4 {
+.contact-text h3 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 600;
+    color: #111827;
+       font-family: "Ancizar Serif", serif;
+    
+  
 }
 
 .contact-text p {
+   font-size: 1.2rem;
   margin: 0.2rem 0;
-  color: #011947;
+    font-weight: 400;
+    padding: 2px;
+  color: #000000;
 }
 
 /* Service Area List */
+.service-areas h4{
+font-size: 1.5rem;
+  font-weight: 700;
+}
+.service-areas p{
+  /* border:1px solid red; */
+  font-weight: 500;
+
+  font-size: 1.2rem;
+}
 .service-areas ul {
   list-style: disc;
   padding-left: 1.5rem;
-  color: #0044aa;
-  font-weight: 700;
+  color: #000000;
+  font-weight: 500;
+   font-size: 1.1rem;
+  
+
 }
 
 /* Responsive tweaks */
