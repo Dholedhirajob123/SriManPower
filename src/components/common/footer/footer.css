@@ -1,9 +1,10 @@
-/* Footer Styles */
+/* Footer Container */
 .site-footer {
-  background-color: #ffffff;
+background-color: #ffffff;
   color: #000708;
   padding: 30px 0 0;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px, rgba(10, 20, 20, 0.15) 0px 2px 16px;
+
 }
 
 .container {
@@ -12,54 +13,71 @@
   padding: 0 20px;
 }
 
+/* Footer Grid Layout */
 .footer-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  position: relative;
-  right: 200px;
+  gap: 2rem;
 }
 
-.footer-box {
-  padding: 20px;
+/* Company Info Section */
+.company-info {
+  padding-right: 2rem;
+}
+
+.logo h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--orange);
+  letter-spacing: 1.5px;
+  font-family: "Ancizar Serif", serif;
+
 
 }
 
-.contact-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  background-color: transparent;
-  width: 850px;
+.headingline {
+    width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  margin-left: 50px;
+  border-radius: 2px;
 
 }
 
-.contact-info {
+.tagline {
+
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  /* margin: 0 auto; */
+  line-height: 1.6;
+  font-family: "Ancizar Serif", serif;
+
+}
+
+/* Contact Info */
+.contact-info-container {
   display: grid;
+ 
   grid-template-columns: 1fr 1fr;
-  gap: 5px;
-  margin-top: 2px;
-  width: 850px;
-  height: 375px;
-   
+
+  gap: 1.5rem;
 }
 
 .contact-item {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  margin-bottom: 20px;
 }
 
 .contact-icon {
+  
   font-size: 20px;
   margin-right: 15px;
   color: #3498db;
   transition: color 0.3s;
-}
 
-.contact-icon:hover {
-  color: #db34cd;
 }
 
 .contact-item h3 {
@@ -70,36 +88,28 @@
 
   margin: 5px;
   font-family: "Ancizar Serif", serif;
+
 }
 
-.contact-item a {
+.contact-item a, 
+.contact-item p, 
+.contact-item address {
 font-size: 1.2rem;
   margin: 0.2rem 0;
     font-weight: 400;
     padding: 2px;
   color: #000000;
-  /* border: 1px solid red; */
+
 }
 
 .contact-item a:hover {
-  color: #3498db;
+  color:#2A67B2;
+  text-decoration: none;
 }
 
-.contact-item address,
-.contact-item p {
-font-size: 1.2rem;
-  margin: 0.2rem 0;
-    font-weight: 400;
-    padding: 1px;
-  color: #000000;
-  width: 350px;
-  /* border:2px solid red; */
-  /* border: 1px solid red; */
-}
-
-/* Map Box */
-.map-box h1 {
-  position: relative;
+/* Map Section */
+.footer-box h1{
+    position: relative;
   top: 10px;
   font-size: 2.3rem;
   font-weight: 700;
@@ -107,155 +117,92 @@ font-size: 1.2rem;
   color: var(--orange);
   letter-spacing: 1.5px;
   font-family: "Ancizar Serif", serif;
+
 }
-.tagline-location{
-    font-size: 1.5rem;
+.map-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.tagline-location {
+   font-size: 1.5rem;
   color: var(--text-secondary);
   max-width: 700px;
   /* margin: 0 auto; */
   line-height: 1.6;
   font-family: "Ancizar Serif", serif;
+  
 }
+
 .map-container {
   position: relative;
-  top: 23px;
-  background: #34495e;
-  padding: 15px;
+  flex-grow: 1;
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  width: 650px;
-  height: 380px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .map-link {
   display: inline-block;
-  margin-top: 15px;
-  color: #0796f5;
+  margin-top: 0.5rem;
+  color: #e74c3c;
+  font-size: 0.9rem;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s;
-  font-size: 18px;
 }
 
 .map-link:hover {
-  color: #2980b9;
+  text-decoration: underline;
 }
 
 /* Footer Bottom */
 .footer-bottom {
   background-color: #1a252f;
-  padding: 20px 0;
-  text-align: center;
-  border-top: 1px solid #34495e;
-  margin-top: 1rem;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
 }
 
 .copyright {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.copyright p {
-  margin: 0;
-  color: #d4eeff;
-  font-size: 20px;
+  font-size: 0.9rem;
+  color: #7f8c8d;
 }
 
 .designer-credit {
-  color: #7f8c8d;
   font-style: italic;
 }
 
-/* Logo and Tagline */
-.logo h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--orange);
-  letter-spacing: 1.5px;
-  font-family: "Ancizar Serif", serif;
-}
-
-.headingline {
-  width: 100px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-  margin-left: 50px;
-  border-radius: 2px;
-}
-
-.tagline {
-  font-size: 1.5rem;
-  color: var(--text-secondary);
-  max-width: 700px;
-  /* margin: 0 auto; */
-  line-height: 1.6;
-  font-family: "Ancizar Serif", serif;
-}
-
 /* Responsive Styles */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .company-info {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-info-container {
     grid-template-columns: 1fr;
   }
   
-  .footer-box {
-    padding: 1rem 0;
+  .copyright {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
   }
   
   .logo h1 {
     font-size: 1.8rem;
-  }
-  
-  .contact-item {
-    flex-direction: column;
-    margin-bottom: 1rem;
-  }
-  
-  .contact-icon {
-    margin-bottom: 0.5rem;
-    margin-right: 0;
-  }
-  
-  .map-container {
-    height: 250px;
-  }
-  
-  .copyright {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: .5rem;
-  }
-  
-  .logo h1 {
-    font-size: 1.5rem;
-  }
-  
-  .tagline, .tagline-location {
-    font-size: 0.9rem;
-  }
-  
-  .contact-item h3 {
-    font-size: 1rem;
-  }
-  
-  .contact-item p, 
-  .contact-item address, 
-  .contact-item a {
-    font-size: 0.9rem;
-  }
-  
-  .map-container {
-    height: 200px;
-  }
-  
-  .copyright p {
-    font-size: 0.8rem;
   }
 }

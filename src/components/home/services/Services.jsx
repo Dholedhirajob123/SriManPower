@@ -100,6 +100,13 @@ const services = [
     icon: "fa fa-building",
     description: "Comprehensive property maintenance and administration",
     details: "Our property management system offers end-to-end solutions for residential and commercial properties. Services include tenant screening and onboarding, rent collection, maintenance coordination (24/7 emergency repairs), and lease management. We handle vendor contracts (cleaning, landscaping, security), property inspections, and financial reporting. Our digital platform provides owners with real-time dashboards for occupancy rates, expense tracking, and maintenance requests. For tenants, we offer a portal for service requests and payment processing. Additional services: utility management, compliance with housing regulations, and renovation project supervision. Ideal for landlords with multiple units, absentee owners, or real estate investors seeking hassle-free asset management with maximum ROI."
+  },
+    {
+    id: 15,
+    title: "Gardening Services",
+    icon: "fa fa-leaf",
+    description: "Professional lawn care and landscape maintenance",
+    details: "Our expert gardening services provide comprehensive outdoor care including lawn mowing, hedge trimming, and seasonal planting. We offer weekly or monthly maintenance plans tailored to your garden's needs. Services include weed control, fertilization, pest management, and irrigation system setup/maintenance. Our team specializes in landscape design, flower bed creation, tree/shrub care, and organic gardening solutions. Additional services: seasonal cleanup (leaf removal, winter preparation), patio/pathway maintenance, and eco-friendly gardening practices. Perfect for homeowners, rental properties, or businesses wanting beautiful outdoor spaces without the hassle. We use professional equipment and sustainable practices to keep your garden thriving year-round."
   }
 
 ];

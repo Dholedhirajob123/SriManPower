@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './contact.css';
-// import axios from "axios";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 
 function Contact() {
@@ -12,36 +11,60 @@ function Contact() {
     serviceAdd: '',
     message: ''
   });
-  // const [isSubmitting, setIsSubmitting] = useState(false);
-  // const [submitStatus, setSubmitStatus] = useState(null);
 
-  const handleChange = (e ) => {
-    const { name, value } = e.target; //Destruction Event
-    setFormData({...formData,[name]:value })
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
- const submit = () =>{
-if (formData.name === " " ||
-   formData.email === " " ||
-   formData.phone === " " || 
-   formData.service === " " || 
-  formData.serviceAdd === " " ||
-  formData.message === " " )
-{
-  alert("All fields are required")
-}
-else{
-  console.log(formData);
-setFormData({
-      name: '',
-    email: '',
-    phone: '',
-    service: '',
-    serviceAdd: '',
-    message: ''
-})
-}
- }
+  const submit = async (e) => {
+    e.preventDefault();
+
+    const fields = Object.values(formData);
+    const isEmpty = fields.some(field => field.trim() === "");
+
+    if (isEmpty) {
+      alert("All fields are required");
+      return;
+    }
+
+    const formPayload = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      formPayload.append(key, value);
+    });
+
+    try {
+      const response = await fetch(
+        "https://docs.google.com/spreadsheets/d/1sTUGg-IKugq-NE4tP79CeclfKzsl9LnD-_vLy_7poiM/edit?gid=0#gid=0",
+        {
+          method: "POST",
+          body: formPayload
+        }
+      );
+
+      const result = await response.json();
+      console.log("Server Response:", result);
+
+      if (result.result === "success") {
+        alert("Form submitted successfully!");
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          serviceAdd: '',
+          message: ''
+        });
+      } else {
+        console.error("Submission error:", result.error);
+        alert("There was an error submitting the form.");
+      }
+    } catch (error) {
+      console.error("Submission failed:", error);
+      alert("Submission failed. Please try again.");
+    }
+  };
+
   return (
     <section className="contact-housekeeping" id="contact">
       <div className="container">
@@ -50,17 +73,11 @@ setFormData({
           <div className="heading-line"></div>
           <p>Get in touch for a free consultation or quote</p>
         </div>
-        
+
         <div className="contact-container">
-          {/* Contact Form - Left Side */}
           <div className="contact-form">
             <h3>Request a Quote or Inquiry</h3>
-            {/* {submitStatus && (
-              <div className={`submit-message ${submitStatus.success ? 'success' : 'error'}`}>
-                {submitStatus.message}
-              </div>
-            )} */}
-            <form >
+            <form onSubmit={submit}>
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="name">Full Name*</label>
@@ -156,77 +173,65 @@ setFormData({
                 ></textarea>
               </div>
 
-              <button 
-                type="submit" 
-                className="submit-btn"
-                // disabled={isSubmitting}
-             onClick={submit} 
-             >Submit
-
-                {/* {isSubmitting ? 'Sending...' : 'Submit Request'} */}
-              </button>
+              <button type="submit" className="submit-btn">Submit</button>
             </form>
           </div>
 
-          {/* Contact Information - Right Side */}
           <div className="contact-info-section">
-           <h3>Our Contact Information</h3>
-           <div className="contact-info-item">
-                <div className="contact-icon">
-                  <FaPhone />
-                </div>
-                <div className="contact-text">
-                  <h3>Phone</h3>
-                  <p>+1 (555) 123-4567</p>
-                  <p>24/7 Emergency Service Available</p>
-                </div>
-              </div>
-                        <div className="contact-info-item">
-                <div className="contact-icon">
-                  <FaEnvelope />
-                </div>
-                <div className="contact-text">
-                  <h3>Email</h3>
-                  <p>info@cleaningservice.com</p>
-                  <p>quotes@cleaningservice.com</p>
-                </div>
-              </div>
-             <div className="contact-info-item">
-                <div className="contact-icon">
-                  <FaMapMarkerAlt />
-                </div>
-                <div className="contact-text">
-                  <h3>Office Address</h3>
-                  <p>123 Cleaning Street</p>
-                  <p>Suite 101, Clean City, CC 12345</p>
-                </div>
-              </div>
+            <h3>Our Contact Information</h3>
+
             <div className="contact-info-item">
-                <div className="contact-icon">
-                  <FaClock />
-                </div>
-            <div className="contact-text">
-                  <h3>Working Hours</h3>
-                  <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-                  <p>Saturday: 9:00 AM - 3:00 PM</p>
-                  <p>Sunday: Emergency calls only</p>
-                </div>
+              <div className="contact-icon"><FaPhone /></div>
+              <div className="contact-text">
+                <h3>Phone</h3>
+                <p>+1 (555) 123-4567</p>
+                <p>24/7 Emergency Service Available</p>
               </div>
-             <div className="service-areas">
-                <h3><b>Service Areas</b></h3>
-                <p>We serve all major areas in Clean City and surrounding communities including:</p>
-                <ul>
-                  <li>Delhi</li>
-                  <li>Maharashtra</li>
-                  <li>Gujarat</li>
-                  <li>Goa</li>
-                </ul>
+            </div>
+
+            <div className="contact-info-item">
+              <div className="contact-icon"><FaEnvelope /></div>
+              <div className="contact-text">
+                <h3>Email</h3>
+                <p>info@cleaningservice.com</p>
+                <p>quotes@cleaningservice.com</p>
               </div>
+            </div>
+
+            <div className="contact-info-item">
+              <div className="contact-icon"><FaMapMarkerAlt /></div>
+              <div className="contact-text">
+                <h3>Office Address</h3>
+                <p>123 Cleaning Street</p>
+                <p>Suite 101, Clean City, CC 12345</p>
+              </div>
+            </div>
+
+            <div className="contact-info-item">
+              <div className="contact-icon"><FaClock /></div>
+              <div className="contact-text">
+                <h3>Working Hours</h3>
+                <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                <p>Saturday: 9:00 AM - 3:00 PM</p>
+                <p>Sunday: Emergency calls only</p>
+              </div>
+            </div>
+
+            <div className="service-areas">
+              <h3><b>Service Areas</b></h3>
+              <p>We serve all major areas in Clean City and surrounding communities including:</p>
+              <ul>
+                <li>Delhi</li>
+                <li>Maharashtra</li>
+                <li>Gujarat</li>
+                <li>Goa</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
-};
+}
 
 export default Contact;

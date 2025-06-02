@@ -57,7 +57,7 @@ const HousekeepingHero = () => {
   return (
     <section className="hero-section">
       <div className="hero-slider">
-        {slides.map((slide, index) => (
+         {slides.map((slide, index) => (
           <div 
             key={slide.id}
             className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
@@ -79,26 +79,26 @@ const HousekeepingHero = () => {
           </div>
         ))}
         
-      {!isMobile && (
-  <>
-    <button 
-      className="slider-nav prev" 
-      onClick={prevSlide}
-      aria-label="Previous slide"
-    >
-      <FaChevronLeft className="nav-arrow-icon" />
-    </button>
-    <button 
-      className="slider-nav next" 
-      onClick={nextSlide}
-      aria-label="Next slide"
-    >
-      <FaChevronRight className="nav-arrow-icon" />
-    </button>
-  </>
-)}
+        {!isMobile && (
+          <>
+            <button 
+              className="slider-nav prev" 
+              onClick={prevSlide}
+              aria-label="Previous slide"
+            >
+              <FaChevronLeft className="nav-arrow-icon" size={50} />
+            </button>
+            <button 
+              className="slider-nav next" 
+              onClick={nextSlide}
+              aria-label="Next slide"
+            >
+              <FaChevronRight  className="nav-arrow-icon" size={50} />
+            </button>
+          </>
+        )}
         
-        <div className="slider-dots">
+       {/* <div className="slider-dots">
           {slides.map((_, index) => (
             <button 
               key={index}
@@ -107,7 +107,7 @@ const HousekeepingHero = () => {
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

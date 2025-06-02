@@ -153,41 +153,36 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.9);
   border: none;
   border-radius: 50%;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
-
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .slider-nav:hover {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 1);
 }
 
 .slider-nav.prev {
-  left: 30px;
-
+  left: 15px;
 }
 
 .slider-nav.next {
-  right: 30px;
+  right: 15px;
 }
 
 .nav-arrow-icon {
+  color: #ff0000;
   font-size: 1.5rem;
-  color:red;
-}
-
-.slider-nav:hover .nav-arrow-icon {
-  transform: scale(1.2);
-  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
 /* Make arrows more visible on active slide */
@@ -261,6 +256,16 @@
   
   .hero-subtitle {
     font-size: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .slider-nav {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .nav-arrow-icon {
+    font-size: 3rem;
   }
 }
 
