@@ -55,12 +55,10 @@ font-size: 2.5rem;
 }
 
 .heading-line {
-    width: 100px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-  margin: 0 auto 1rem;
-  border-radius: 2px;
-
+  width: 50px;
+  height: 3px;
+  background-color: #e61111;
+  margin: 20px auto;
 }
 
 .section-subtitle {
@@ -192,7 +190,7 @@ color: var(--text-secondary);
 .modal-content {
   background: var(--modal-bg, #ffffff);
   border-radius: 12px;
-  max-width: 700px;
+  max-width: 900px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
@@ -263,6 +261,7 @@ color: var(--text-secondary);
   line-height: 1.6;
     font-family:'Times New Roman', Times, serif;
     color: black;
+  
 
 }
 
@@ -272,6 +271,7 @@ color: var(--text-secondary);
   border-radius: 10px;
   margin-bottom: 2rem;
   font-size:1rem;
+   
 
 }
 
@@ -285,9 +285,10 @@ color: var(--text-secondary);
 }
 
 .modal-details p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.7;
   color: #000000;
+  font-weight: 500;
   opacity: 0.9;
 }
 
