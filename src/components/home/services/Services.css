@@ -1,7 +1,7 @@
 /* Base Styles */
 .root {
   min-height: 100vh;
-background: linear-gradient(45deg, #f3e7e9, #e3eeff, #e7f3e9, #fff5e3);
+/* background: linear-gradient(45deg, #f3e7e9, #e3eeff, #e7f3e9, #fff5e3); */
   color: var(--text-primary);
   transition: var(--transition);
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -260,7 +260,7 @@ color: var(--text-secondary);
   opacity: 0.9;
   line-height: 1.6;
     font-family:'Times New Roman', Times, serif;
-    color: black;
+    color: #2A67B2;
   
 
 }
@@ -280,7 +280,7 @@ color: var(--text-secondary);
   margin-bottom: 15px;
   color: var(--modal-text);
   
-  color:#2A67B2 ;
+  color:#ff8400 ;
 
 }
 

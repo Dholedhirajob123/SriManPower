@@ -56,7 +56,7 @@
 .about-text h2 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
-  color: #2A67B2; /* Blue heading */
+  color: #EB9336; /* Blue heading */
   position: relative;
   padding-bottom: 0.5rem;
   font-weight: 700;
@@ -78,7 +78,7 @@
 .about-text h3 {
   font-size: 1.5rem;
   margin: 1.5rem 0 1rem;
-  color: #2A67B2; /* Blue subheading */
+  color: #EB9336; /* Blue subheading */
     font-family: "Ancizar Serif", serif;
     font-weight: 700;
 
@@ -86,7 +86,7 @@
 .about-text h3{
     font-size: 1.5rem;
   margin: 1.5rem 0 1rem;
-  color: #2A67B2; /* Blue subheading */
+  color: #EB9336; /* Blue subheading */
     font-family: "Ancizar Serif", serif;
     font-weight: 700;
 }
