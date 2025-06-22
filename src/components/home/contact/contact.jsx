@@ -211,8 +211,8 @@ function Contact() {
               <div className="contact-icon"><FaClock /></div>
               <div className="contact-text">
                 <h3>Working Hours</h3>
-                <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-                <p>Saturday: 9:00 AM - 3:00 PM</p>
+                <p>Monday - Saturday: 7:00 AM - 10:00 PM</p>
+                {/* <p>Saturday: 9:00 AM - 3:00 PM</p> */}
                 <p>Sunday: Emergency calls only</p>
               </div>
             </div>
