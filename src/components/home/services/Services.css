@@ -90,6 +90,7 @@ background: linear-gradient(45deg, #f3e7e9, #e3eeff, #e7f3e9, #fff5e3);
   transition: var(--transition);
   cursor: pointer;
   position: relative;
+  right: 85px;
   overflow: hidden;
 box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 50px 4px;
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -349,7 +350,10 @@ color: var(--text-secondary);
 @media (max-width: 768px) {
   .main-heading {
     font-size: 2rem;
+        
+
   }
+
   
   .section-subtitle {
     font-size: 1rem;
@@ -362,6 +366,8 @@ color: var(--text-secondary);
   
   .service-card {
     padding: 10px 5px;
+      position: relative;
+  left: 10px;
 }
   
   .service-title {
@@ -370,7 +376,8 @@ color: var(--text-secondary);
   
   .modal-content {
     padding: 20px;
-    max-height: 85vh;
+    max-height: 95vh;
+  
   }
   
   .modal-title {
@@ -400,6 +407,7 @@ color: var(--text-secondary);
     grid-template-columns: 1fr;
   }
   
+  
   .main-heading {
     font-size: 1.8rem;
     margin-bottom: 10px;
@@ -425,6 +433,7 @@ color: var(--text-secondary);
     width: 60px;
     height: 60px;
     margin-bottom: 15px;
+    
   }
 
   .modal-description {
@@ -446,7 +455,9 @@ color: var(--text-secondary);
     padding: 10px;
     font-size: 0.9rem;
   }
+  
 }
+
 
 /* Accessibility Improvements */
 .service-card:focus {
@@ -462,18 +473,20 @@ color: var(--text-secondary);
   .slider-nav {
     width: 40px;
     height: 40px;
+    
   }
   
   .nav-arrow-icon {
     font-size: 1.5rem;
   }
+  
 }
 
 /* Tablet styles */
 @media (min-width: 768px) and (max-width: 1023px) {
   .slider-nav {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
   
   .nav-arrow-icon {
@@ -487,6 +500,15 @@ color: var(--text-secondary);
   .slider-nav.next {
     right: 20px;
   }
+  .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 5px;
+  }
+    .service-card {
+    padding: 10px 5px;
+      position: relative;
+  left: 10px;
+}
 }
 
 /* Desktop styles */
@@ -494,6 +516,7 @@ color: var(--text-secondary);
   .slider-nav {
     width: 70px;
     height: 70px;
+    
   }
   
   .nav-arrow-icon {
