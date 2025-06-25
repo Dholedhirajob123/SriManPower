@@ -1,22 +1,21 @@
 import React from "react";
-import "./about.css"; // Custom CSS
-import aboutImg from "../../assests/img1.jpg"; // Main image
-import service1 from "../../assests/img2.jpg"; // Sub-image 1
-import service2 from "../../assests/pic 1.jpg"; // Sub-image 2
+import "./about.css";
+import aboutImg from "../../assests/img1.jpg";
+import service1 from "../../assests/img2.jpg";
+import service2 from "../../assests/pic 1.jpg";
 
 const About = () => {
   return (
     <section className="about-housekeeping">
-      {/* New About Us Title Section */}
+      {/* About Us Header Section */}
       <div className="about-us-header">
         <h1>About Us</h1>
-         <div className="heading-line"></div>
-        <p className="subtitle">Professional Cleaning Services </p>
-        <div className="header-divider"></div>
+        {/* <div className="heading-line"></div> */}
+        <p className="subtitle">Professional Cleaning Services</p>
       </div>
 
       <div className="about-container">
-        {/* Left: Text Content */}
+        {/* Text Content - Now appears first on mobile */}
         <div className="about-text">
           <h2>About Our Housekeeping Services</h2>
           <p>
@@ -27,29 +26,55 @@ const About = () => {
           </p>
           
           <h3>Why Choose Us?</h3>
-          <ul>
-            <li>✅ Experienced & background-verified staff</li>
-            <li>✅ Eco-friendly cleaning products</li>
-            <li>✅ 24/7 emergency services</li>
-            <li>✅ Affordable monthly packages</li>
+          <ul className="benefits-list">
+            <li>
+              <span className="check-icon">✓</span>
+              <span>Experienced & background-verified staff</span>
+            </li>
+            <li>
+              <span className="check-icon">✓</span>
+              <span>Eco-friendly cleaning products</span>
+            </li>
+            <li>
+              <span className="check-icon">✓</span>
+              <span>24/7 emergency services</span>
+            </li>
+            <li>
+              <span className="check-icon">✓</span>
+              <span>Affordable monthly packages</span>
+            </li>
           </ul>
-             {/* Bottom: Service Gallery */}
-      <div className="service-gallery">
-        <img src={service1} alt="Office Cleaning Service" />
-        <img src={service2} alt="Home Deep Cleaning" />
-      </div>
         </div>
 
-        {/* Right: Main Image */}
+        {/* Main Image - Appears after text on mobile */}
         <div className="about-img-main">
           <img 
             src={aboutImg} 
             alt="Professional Housekeeping Team" 
+            className="main-image"
           />
         </div>
-      </div>
 
-   
+        {/* Service Gallery - Moved outside the text container */}
+        <div className="service-gallery">
+          <div className="gallery-item">
+            <img 
+              src={service1} 
+              alt="Office Cleaning Service" 
+              className="gallery-image"
+            />
+            <div className="image-caption">Office Cleaning</div>
+          </div>
+          <div className="gallery-item">
+            <img 
+              src={service2} 
+              alt="Home Deep Cleaning" 
+              className="gallery-image"
+            />
+            <div className="image-caption">Home Cleaning</div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

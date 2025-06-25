@@ -1,23 +1,29 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./header.css";
-import { FaSearch, FaBars, FaTimes } from 'react-icons/fa';
+import { 
+  FaSearch, 
+  FaBars, 
+  FaTimes, 
+  FaHome, 
+  FaServicestack,
+  FaPhone,
+  FaWhatsapp
+} from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import logo from "../../assests/logo.ico";
-import WhatsApp from "../../assests/download.jpg";
 
 const Header = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
   const [selectedService, setSelectedService] = useState(null);
   const [showServiceDialog, setShowServiceDialog] = useState(false);
   const searchRef = useRef(null);
 
-  // Services data with full details
-  const services = [
-   {
+  // Services data (same as before)
+ const services = [
+  {
     id: 1,
     title: "House Maid Services",
     icon: "fa fa-broom",
@@ -114,19 +120,16 @@ const Header = ({ onSearch }) => {
     icon: "fa fa-building",
     description: "Comprehensive property maintenance and administration",
     details: "Our property management system offers end-to-end solutions for residential and commercial properties. Services include tenant screening and onboarding, rent collection, maintenance coordination (24/7 emergency repairs), and lease management. We handle vendor contracts (cleaning, landscaping, security), property inspections, and financial reporting. Our digital platform provides owners with real-time dashboards for occupancy rates, expense tracking, and maintenance requests. For tenants, we offer a portal for service requests and payment processing. Additional services: utility management, compliance with housing regulations, and renovation project supervision. Ideal for landlords with multiple units, absentee owners, or real estate investors seeking hassle-free asset management with maximum ROI."
+  },
+    {
+    id: 15,
+    title: "Gardening Services",
+    icon: "fa fa-leaf",
+    description: "Professional lawn care and landscape maintenance",
+    details: "Our expert gardening services provide comprehensive outdoor care including lawn mowing, hedge trimming, and seasonal planting. We offer weekly or monthly maintenance plans tailored to your garden's needs. Services include weed control, fertilization, pest management, and irrigation system setup/maintenance. Our team specializes in landscape design, flower bed creation, tree/shrub care, and organic gardening solutions. Additional services: seasonal cleanup (leaf removal, winter preparation), patio/pathway maintenance, and eco-friendly gardening practices. Perfect for homeowners, rental properties, or businesses wanting beautiful outdoor spaces without the hassle. We use professional equipment and sustainable practices to keep your garden thriving year-round."
   }
-  ];
 
-  // Check if mobile view
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+];
 
   // Close suggestions when clicking outside
   useEffect(() => {
@@ -135,11 +138,8 @@ const Header = ({ onSearch }) => {
         setShowSuggestions(false);
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const handleSearch = (e) => {
@@ -147,7 +147,6 @@ const Header = ({ onSearch }) => {
     setSearchTerm(term);
     onSearch(term);
     
-    // Filter suggestions based on title
     if (term.length > 0) {
       const filtered = services.filter(service => 
         service.title.toLowerCase().includes(term.toLowerCase())
@@ -155,7 +154,6 @@ const Header = ({ onSearch }) => {
       setSuggestions(filtered);
       setShowSuggestions(true);
     } else {
-      setSuggestions([]);
       setShowSuggestions(false);
     }
   };
@@ -165,7 +163,7 @@ const Header = ({ onSearch }) => {
     setShowServiceDialog(true);
     setSearchTerm(service.title);
     setShowSuggestions(false);
-    onSearch(service.title);
+    if (menuOpen) closeMenu();
   };
 
   const closeServiceDialog = () => {
@@ -184,153 +182,153 @@ const Header = ({ onSearch }) => {
   };
 
   return (
-    <header className="header">
-      <div className='container flex header-wrapper'>
-        {/* Logo and menu code remains the same */}
- <div className='logo'>
-          <Link to="/" className="logo-link" aria-label="Home">
-            <img 
-              src={logo} 
-              alt="Sri Man Power Logo" 
-              className="logo-img" 
-              width="50"
-              height="50"
-              loading="lazy"
-            />
-          </Link>
-        </div>
+    <>
+      <header className="header">
+        <div className='container header-wrapper'>
+          {/* Logo */}
+          <div className='logo'>
+            <Link to="/">
+              <img 
+                src={logo} 
+                alt="Company Logo" 
+                className="logo-img" 
+                loading="lazy"
+              />
+            </Link>
+          </div>
 
-         <button 
-          className="menu-icon" 
-          onClick={toggleMenu}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-        >
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
+          {/* Search Container - Visible on desktop */}
+          <div className="search-container desktop-search" ref={searchRef}>
+            <div className="search-input-wrapper">
+              <FaSearch className="search-icon" />
+              <input
+                type="text"
+                placeholder="Search services..."
+                value={searchTerm}
+                onChange={handleSearch}
+                onFocus={() => searchTerm.length > 0 && setShowSuggestions(true)}
+              />
+              {showSuggestions && (
+                <ul className="search-suggestions">
+                  {suggestions.map(service => (
+                    <li 
+                      key={service.id} 
+                      onClick={() => handleSuggestionClick(service)}
+                    >
+                      {service.title}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
 
-          <nav 
-          className={`nav ${menuOpen ? "open" : ""}`} 
-          aria-hidden={!menuOpen && isMobile}
-        >
-          {menuOpen && (
-            <div className="backdrop" onClick={closeMenu} aria-hidden="true" />
-          )}
-          <ul>
-            <li><Link to="/" onClick={closeMenu}>Home</Link></li>
-            <li><a href="#services" onClick={closeMenu}>Services</a></li>
-            <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
-          </ul>
-        </nav>
-<div className="search-container" ref={searchRef}>
-  <div className="search-input-wrapper">
-    <input
-      type="text"
-      placeholder="Search services..."
-      value={searchTerm}
-      onChange={handleSearch}
-      onFocus={() => searchTerm.length > 0 && setShowSuggestions(true)}
-      className="search-input"
-      aria-label="Search services"
-      aria-haspopup="listbox"
-      aria-expanded={showSuggestions}
-    />
-    <FaSearch className="search-icon" aria-hidden="true" />
-  </div>
-  
-  {showSuggestions && (
-    <ul className="search-suggestions" role="listbox">
-      {suggestions.length > 0 ? (
-        suggestions.map((service) => (
-          <li 
-            key={service.id}
-            onClick={() => handleSuggestionClick(service)}
-            role="option"
-            aria-selected={searchTerm === service.title}
+          {/* Mobile Menu Button */}
+          <button 
+            className="menu-toggle" 
+            onClick={toggleMenu}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
-            {service.title}
-          </li>
-        ))
-      ) : (
-        <li className="no-results-message">
-          No services available matching your search
-        </li>
-      )}
-    </ul>
-  )}
-</div>
-   <div className="whatsapp-float-container">
-          <a 
-            href="https://wa.me/?text=Hello%20How%20Can%20I%20help%20you?" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="whatsapp-link"
-            aria-label="Chat on WhatsApp"
-          >
-            <img 
-              src={WhatsApp} 
-              alt="WhatsApp logo" 
-              className="whatsapp-logo pulse-animation"
-              width="40"
-              height="40"
-              loading="lazy"
-            />
-            <span className="tooltip">Message Us</span>
-          </a>
-        </div>
-           {/* WhatsApp Float Button */}
-        <div className="whatsapp-float-container">
-          <a 
-            href="https://wa.me/?text=Hello%20How%20Can%20I%20help%20you?" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="whatsapp-link"
-            aria-label="Chat on WhatsApp"
-          >
-            <img 
-              src={WhatsApp} 
-              alt="WhatsApp logo" 
-              className="whatsapp-logo pulse-animation"
-              width="40"
-              height="40"
-              loading="lazy"
-            />
-            <span className="tooltip">Message Us</span>
-          </a>
-        </div>
+            {menuOpen ? <FaTimes /> : <FaBars />}
+          </button>
 
-        {/* Service Dialog Box */}
-         {closeServiceDialog && selectedService && (
-          <div className="modal-overlay" onClick={closeServiceDialog}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button 
-                className="close-button" 
-                onClick={closeServiceDialog}
-                aria-label="Close modal"
-              >
-                &times;
-              </button>
-              
-              <div className="modal-header">
-                <div className="modal-icon-circle">
-                  <i className={`${selectedService.icon} fa-3x`}></i>
+          {/* Navigation */}
+          <nav className={`nav ${menuOpen ? "open" : ""}`}>
+            {menuOpen && (
+              <div className="mobile-search-container" ref={searchRef}>
+                <div className="search-input-wrapper">
+                  <FaSearch className="search-icon" />
+                  <input
+                    type="text"
+                    placeholder="Search services..."
+                    value={searchTerm}
+                    onChange={handleSearch}
+                    onFocus={() => searchTerm.length > 0 && setShowSuggestions(true)}
+                  />
+                  {showSuggestions && (
+                    <ul className="search-suggestions">
+                      {suggestions.map(service => (
+                        <li 
+                          key={service.id} 
+                          onClick={() => handleSuggestionClick(service)}
+                        >
+                          {service.title}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </div>
-              <h3 className="modal-title">{selectedService.title}</h3>
-              <div className="modal-body">
-                <p className="modal-description">{selectedService.description}</p>
-                <div className="modal-details">
-                  <h4>Service Details:</h4>
-                  <p>{selectedService.details}</p>
-                </div>
-                
-                
+            )}
+            
+            <ul>
+              <li>
+                <Link to="/" onClick={closeMenu}>
+                  {/* <FaHome className="nav-icon" /> */}
+                  <span>Home</span>
+                </Link>
+              </li>
+              <li>
+                <a href="#services" onClick={closeMenu}>
+                  {/* <FaServicestack className="nav-icon" /> */}
+                  <span>Services</span>
+                </a>
+              </li>
+              <li>
+                <a href="#contact" onClick={closeMenu}>
+                  {/* <FaPhone className="nav-icon" /> */}
+                  <span>Contact</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      {/* Fixed WhatsApp Button */}
+      <div className="whatsapp-float">
+        <a 
+          href="https://wa.me/?text=Hello%20How%20Can%20I%20help%20you?" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="Chat on WhatsApp"
+        >
+          <FaWhatsapp className="whatsapp-icon" />
+          <span className="whatsapp-tooltip">Message Us</span>
+        </a>
+      </div>
+
+      {/* Service Dialog */}
+      {showServiceDialog && selectedService && (
+        <div className="modal-overlay" onClick={closeServiceDialog}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="close-button" 
+              onClick={closeServiceDialog}
+              aria-label="Close modal"
+            >
+              &times;
+            </button>
+            
+            <div className="modal-header">
+              <div className="modal-icon-circle">
+                <i className={`${selectedService.icon} fa-3x`}></i>
+              </div>
+            </div>
+            
+            <h3 className="modal-title">{selectedService.title}</h3>
+            
+            <div className="modal-body">
+              <p className="modal-description">{selectedService.description}</p>
+              <div className="modal-details">
+                <h4>Service Details:</h4>
+                <p>{selectedService.details}</p>
               </div>
             </div>
           </div>
-        )}
-      </div>
-    </header>
+        </div>
+      )}
+    </>
   );
 };
 

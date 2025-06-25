@@ -11,14 +11,16 @@ const Footer = () => {
           <div className="footer-box company-info">
             <div className="logo">
               <h1>Sri Man Power</h1>
-              <div className="headingline"></div>
+              {/* <div className="headingline"></div> */}
               <p className="tagline">Your trusted manpower solution provider</p>
             </div>
 
             <div className="contact-info-container">
               <div className="contact-item">
-                <FaPhone className="contact-icon" />
-                <div>
+                <div className="contact-icon-container">
+                  <FaPhone className="contact-icon" />
+                </div>
+                <div className="contact-text">
                   <h3>Phone</h3>
                   <a href="tel:+919876543210">+919876543210</a><br />
                   <a href="tel:+919876543210">+919876543210</a>
@@ -26,8 +28,10 @@ const Footer = () => {
               </div>
               
               <div className="contact-item">
-                <FaEnvelope className="contact-icon" />
-                <div>
+                <div className="contact-icon-container">
+                  <FaEnvelope className="contact-icon" />
+                </div>
+                <div className="contact-text">
                   <h3>Email</h3>
                   <a href="mailto:info@srismanpower.com">info@srismanpower.com</a><br />
                   <a href="mailto:support@srismanpower.com">support@srismanpower.com</a>
@@ -35,8 +39,10 @@ const Footer = () => {
               </div>
               
               <div className="contact-item">
-                <FaMapMarkerAlt className="contact-icon" />
-                <div>
+                <div className="contact-icon-container">
+                  <FaMapMarkerAlt className="contact-icon" />
+                </div>
+                <div className="contact-text">
                   <h3>Office Address</h3>
                   <address>
                     123 Business Park, Sector 22<br />
@@ -47,8 +53,10 @@ const Footer = () => {
               </div>
               
               <div className="contact-item">
-                <FaClock className="contact-icon" />
-                <div>
+                <div className="contact-icon-container">
+                  <FaClock className="contact-icon" />
+                </div>
+                <div className="contact-text">
                   <h3>Working Hours</h3>
                   <p>Monday-Friday: 9:00 AM - 6:00 PM</p>
                   <p>Saturday: 10:00 AM-2:00 PM</p>
@@ -61,7 +69,7 @@ const Footer = () => {
           {/* Map Location */}
           <div className="footer-box map-box">
             <h1>Our Location</h1>
-            <div className="headingline"></div>
+            {/* <div className="headingline"></div> */}
             <p className="tagline-location">Come visit us — we're closer than you think!</p>
             <div className="map-container">
               <iframe

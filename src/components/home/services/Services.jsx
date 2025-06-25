@@ -111,14 +111,20 @@ const services = [
 
 ];
 
+
 const HousekeepingServices = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filteredServices, setFilteredServices] = useState(services);
   const [showContactInfo, setShowContactInfo] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
     // Check user's preferred color scheme
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     setIsDarkMode(prefersDark);
@@ -129,6 +135,9 @@ const HousekeepingServices = () => {
         servicesSection.scrollIntoView({ behavior: "smooth" });
       }
     }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const toggleDarkMode = () => {
@@ -157,7 +166,8 @@ const HousekeepingServices = () => {
       setFilteredServices(services);
     } else {
       const filtered = services.filter(service =>
-        service.title.toLowerCase().includes(searchTerm.toLowerCase())
+        service.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        service.description.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setFilteredServices(filtered);
     }
@@ -168,39 +178,44 @@ const HousekeepingServices = () => {
       <Header onSearch={handleSearch} isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
       
       <section className="services-section" id="services">
-        
-        
         <div className="container">
           <div className="heading-container">
             <h1 className="main-heading">Our Premium Services</h1>
-            <div className="heading-line"></div>
+            {/* <div className="heading-line"></div> */}
             <p className="section-subtitle">
               Exceptional solutions tailored to your unique needs
             </p>
           </div>
           
           <div className="services-grid">
-            {filteredServices.map((service) => (
-              <div 
-                className="service-card"
-                key={service.id}
-                onClick={() => handleServiceClick(service)}
-                tabIndex="0"
-                role="button"
-                aria-label={`View details about ${service.title}`}
-                onKeyPress={(e) => e.key === "Enter" && handleServiceClick(service)}
-              >
-                <div className="card-icon">
-                  <i className={`${service.icon} fa-3x`}></i>
+            {filteredServices.length > 0 ? (
+              filteredServices.map((service) => (
+                <div 
+                  className="service-card"
+                  key={service.id}
+                  onClick={() => handleServiceClick(service)}
+                  tabIndex="0"
+                  role="button"
+                  aria-label={`View details about ${service.title}`}
+                  onKeyPress={(e) => e.key === "Enter" && handleServiceClick(service)}
+                >
+                  <div className="card-icon">
+                    <i className={`${service.icon} fa-3x`}></i>
+                  </div>
+                  <h3 className="service-title">{service.title}</h3>
+                  <div className="learn-more">
+                    Explore Service <i className="fas fa-chevron-right"></i>
+                  </div>
+                  <div className="card-hover-effect"></div>
                 </div>
-                <h3 className="service-title">{service.title}</h3>
-                {/* <p className="service-description">{service.description}</p> */}
-                <div className="learn-more">
-                  EXPLORE SERVICE <i className="fas fa-chevron-right"></i>
-                </div>
-                <div className="card-hover-effect"></div>
+              ))
+            ) : (
+              <div className="no-results">
+                <i className="fas fa-search fa-3x"></i>
+                <h3>No services found</h3>
+                <p>Try adjusting your search query</p>
               </div>
-            ))}
+            )}
           </div>
         </div>
 
@@ -228,7 +243,7 @@ const HousekeepingServices = () => {
                   <p>{selectedService.details}</p>
                 </div>
                 
-                
+            
               </div>
             </div>
           </div>

@@ -70,7 +70,7 @@ function Contact() {
       <div className="container">
         <div className="section-header">
           <h1>Contact Us</h1>
-          <div className="heading-line"></div>
+          {/* <div className="heading-line"></div> */}
           <p>Get in touch for a free consultation or quote</p>
         </div>
 
@@ -180,45 +180,46 @@ function Contact() {
           <div className="contact-info-section">
             <h3>Our Contact Information</h3>
 
-            <div className="contact-info-item">
-              <div className="contact-icon"><FaPhone /></div>
-              <div className="contact-text">
-                <h3>Phone</h3>
-                <p>+1 (555) 123-4567</p>
-                <p>24/7 Emergency Service Available</p>
+            <div className="contact-info-grid">
+              <div className="contact-info-item">
+                <div className="contact-icon"><FaPhone /></div>
+                <div className="contact-text">
+                  <h4>Phone</h4>
+                  <p>+1 (555) 123-4567</p>
+                  <p>24/7 Emergency Service Available</p>
+                </div>
               </div>
-            </div>
 
-            <div className="contact-info-item">
-              <div className="contact-icon"><FaEnvelope /></div>
-              <div className="contact-text">
-                <h3>Email</h3>
-                <p>info@cleaningservice.com</p>
-                <p>quotes@cleaningservice.com</p>
+              <div className="contact-info-item">
+                <div className="contact-icon"><FaEnvelope /></div>
+                <div className="contact-text">
+                  <h4>Email</h4>
+                  <p>info@cleaningservice.com</p>
+                  <p>quotes@cleaningservice.com</p>
+                </div>
               </div>
-            </div>
 
-            <div className="contact-info-item">
-              <div className="contact-icon"><FaMapMarkerAlt /></div>
-              <div className="contact-text">
-                <h3>Office Address</h3>
-                <p>123 Cleaning Street</p>
-                <p>Suite 101, Clean City, CC 12345</p>
+              <div className="contact-info-item">
+                <div className="contact-icon"><FaMapMarkerAlt /></div>
+                <div className="contact-text">
+                  <h4>Office Address</h4>
+                  <p>123 Cleaning Street</p>
+                  <p>Suite 101, Clean City, CC 12345</p>
+                </div>
               </div>
-            </div>
 
-            <div className="contact-info-item">
-              <div className="contact-icon"><FaClock /></div>
-              <div className="contact-text">
-                <h3>Working Hours</h3>
-                <p>Monday - Saturday: 7:00 AM - 10:00 PM</p>
-                {/* <p>Saturday: 9:00 AM - 3:00 PM</p> */}
-                <p>Sunday: Emergency calls only</p>
+              <div className="contact-info-item">
+                <div className="contact-icon"><FaClock /></div>
+                <div className="contact-text">
+                  <h4>Working Hours</h4>
+                  <p>Monday - Saturday: 7:00 AM - 10:00 PM</p>
+                  <p>Sunday: Emergency calls only</p>
+                </div>
               </div>
             </div>
 
             <div className="service-areas">
-              <h3><b>Service Areas</b></h3>
+              <h4><b>Service Areas</b></h4>
               <p>We serve all major areas in Clean City and surrounding communities including:</p>
               <ul>
                 <li>Delhi</li>
