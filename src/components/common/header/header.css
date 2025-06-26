@@ -36,11 +36,11 @@ width: 200px;
 .search-container {
   position: relative;
   /* flex: 1; */
-  left: 400px;
+  left: 380px;
   max-width: 400px;
   margin: 0 20px;
   border: 2px solid black;
-  padding: 10px;
+  padding: 5px;
 }
 
 .search-input-wrapper {
@@ -94,7 +94,13 @@ width: 200px;
 .search-suggestions li:hover {
   background: #f5f5f5;
 }
-
+.search-suggestions .no-results {
+  color: #888;
+  padding: 10px 15px;
+  cursor: default;
+  pointer-events: none;
+  font-style: italic;
+}
 /* Navigation */
 .nav {
   display: flex;
@@ -225,6 +231,8 @@ width: 200px;
   .mobile-search-container {
     display: block;
     width: 100%;
+    border: 2px solid black;
+    position: relative;
   }
 
   .menu-toggle {
@@ -235,7 +243,7 @@ width: 200px;
     position: fixed;
     top: 100px;
     left: 0;
-    right: 250px;
+    right:30px;
     bottom: 0;
     background:white;
     flex-direction: column;
@@ -249,6 +257,7 @@ width: 200px;
 
   .nav.open {
     transform: translateX(0);
+    /* border:2px solid red; */
   }
 
   .nav ul {
@@ -278,6 +287,7 @@ width: 200px;
   .search-input {
     padding: 8px 15px 8px 35px;
     font-size: 0.8rem;
+  
   }
 
   .whatsapp-float {
@@ -287,5 +297,67 @@ width: 200px;
 
   .whatsapp-icon {
     font-size: 20px;
+  }
+}
+
+@media (max-width: 325px) {
+  .header {
+    padding: 5px 0;
+  }
+
+  .logo-img {
+    width: 150px;
+    height: 70px;
+  }
+
+  .menu-toggle {
+    font-size: 1.3rem;
+    padding: 5px;
+  }
+
+  .nav {
+    top: 80px;
+    padding: 10px;
+    /* border: 2px solid red; */
+  }
+
+  .nav a {
+    font-size: 1rem;
+  }
+
+  .nav-icon {
+    font-size: 1.1rem;
+    margin-right: 8px;
+  }
+
+  .mobile-search-container {
+    padding: 10px;
+  }
+
+  .search-input {
+    padding: 6px 12px 6px 30px;
+    font-size: 0.75rem;
+  }
+
+  .search-icon {
+    left: 10px;
+    font-size: 0.9rem;
+  }
+
+  .whatsapp-float {
+    width: 40px;
+    height: 40px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .whatsapp-icon {
+    font-size: 18px;
+  }
+
+  .whatsapp-tooltip {
+    right: 50px;
+    font-size: 0.7rem;
+    padding: 4px 8px;
   }
 }

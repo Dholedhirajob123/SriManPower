@@ -4,9 +4,7 @@ import {
   FaSearch, 
   FaBars, 
   FaTimes, 
-  FaHome, 
-  FaServicestack,
-  FaPhone,
+
   FaWhatsapp
 } from 'react-icons/fa';
 import { Link } from "react-router-dom";
@@ -198,30 +196,34 @@ const Header = ({ onSearch }) => {
           </div>
 
           {/* Search Container - Visible on desktop */}
-          <div className="search-container desktop-search" ref={searchRef}>
-            <div className="search-input-wrapper">
-              <FaSearch className="search-icon" />
-              <input
-                type="text"
-                placeholder="Search services..."
-                value={searchTerm}
-                onChange={handleSearch}
-                onFocus={() => searchTerm.length > 0 && setShowSuggestions(true)}
-              />
-              {showSuggestions && (
-                <ul className="search-suggestions">
-                  {suggestions.map(service => (
-                    <li 
-                      key={service.id} 
-                      onClick={() => handleSuggestionClick(service)}
-                    >
-                      {service.title}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </div>
+        <div className="search-container desktop-search" ref={searchRef}>
+  <div className="search-input-wrapper">
+    <FaSearch className="search-icon" />
+    <input
+      type="text"
+      placeholder="Search services..."
+      value={searchTerm}
+      onChange={handleSearch}
+      onFocus={() => searchTerm.length > 0 && setShowSuggestions(true)}
+    />
+    {showSuggestions && (
+      <ul className="search-suggestions">
+        {suggestions.length > 0 ? (
+          suggestions.map(service => (
+            <li 
+              key={service.id} 
+              onClick={() => handleSuggestionClick(service)}
+            >
+              {service.title}
+            </li>
+          ))
+        ) : (
+          <li className="no-results">No services match your search</li>
+        )}
+      </ul>
+    )}
+  </div>
+</div>
 
           {/* Mobile Menu Button */}
           <button 
@@ -297,6 +299,23 @@ const Header = ({ onSearch }) => {
           <span className="whatsapp-tooltip">Message Us</span>
         </a>
       </div>
+
+{showSuggestions && (
+  <ul className="search-suggestions">
+    {suggestions.length > 0 ? (
+      suggestions.map(service => (
+        <li 
+          key={service.id} 
+          onClick={() => handleSuggestionClick(service)}
+        >
+          {service.title}
+        </li>
+      ))
+    ) : (
+      <li className="no-results">No services match your search</li>
+    )}
+  </ul>
+)}
 
       {/* Service Dialog */}
       {showServiceDialog && selectedService && (

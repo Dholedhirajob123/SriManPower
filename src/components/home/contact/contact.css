@@ -153,7 +153,7 @@
 .contact-text h4 {
   font-size: 1.2rem;
   color: var(--black);
-  margin-bottom: 5px;
+
 }
 
 .contact-text p {
@@ -197,7 +197,7 @@
 
 .service-areas li:before {
   content: "•";
-  color: #4CAF50;
+  color:var(--black);
   position: absolute;
   left: 0;
 }
