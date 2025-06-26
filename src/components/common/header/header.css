@@ -138,7 +138,7 @@ width: 200px;
 }
 
 .nav a:hover {
-  color: #4CAF50;
+  color:var(--blue);
 }
 
 /* Mobile Menu */
