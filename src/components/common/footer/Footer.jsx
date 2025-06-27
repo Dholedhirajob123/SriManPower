@@ -22,8 +22,8 @@ const Footer = () => {
                 </div>
                 <div className="contact-text">
                   <h3>Phone</h3>
-                  <a href="tel:+919876543210">+919876543210</a><br />
-                  <a href="tel:+919876543210">+919876543210</a>
+                       <p>+1 (555) 123-4567</p>
+                  <p>24/7 Emergency Service Available</p>
                 </div>
               </div>
               
@@ -33,8 +33,9 @@ const Footer = () => {
                 </div>
                 <div className="contact-text">
                   <h3>Email</h3>
-                  <a href="mailto:info@srismanpower.com">info@srismanpower.com</a><br />
-                  <a href="mailto:support@srismanpower.com">support@srismanpower.com</a>
+                  <a href="mailto:info@srismanpower.com">info@cleaningservice.com</a><br />  
+                 
+                  <a href="mailto:support@srismanpower.com">quotes@cleaningservice.com</a>
                 </div>
               </div>
               
@@ -45,9 +46,8 @@ const Footer = () => {
                 <div className="contact-text">
                   <h3>Office Address</h3>
                   <address>
-                    123 Business Park, Sector 22<br />
-                    Mumbai, Maharashtra 400001<br />
-                    India
+                  <p>Queens Rd, Shivaji Nagar</p>
+                  <p> Bangalore, Karnataka 560001</p>
                   </address>
                 </div>
               </div>
@@ -58,9 +58,9 @@ const Footer = () => {
                 </div>
                 <div className="contact-text">
                   <h3>Working Hours</h3>
-                  <p>Monday-Saturday: 10:00 AM - 7:00 PM</p>
+                  <p>Monday-Saturday:10:00AM-7-:00PM</p>
                   {/* <p> 10:00 AM-2:00 PM</p> */}
-                  <p>Sunday: Closed</p>
+                  <p>Sunday: Emergency calls only</p>
                 </div>
               </div>
             </div>

@@ -103,7 +103,7 @@
 
 .card-icon {
   margin-bottom: 1.5rem;
-    color: #ff8400;
+    color:var(--blue);
 
 }
 

@@ -203,8 +203,8 @@ function Contact() {
                 <div className="contact-icon"><FaMapMarkerAlt /></div>
                 <div className="contact-text">
                   <h4>Office Address</h4>
-                  <p>123 Cleaning Street</p>
-                  <p>Suite 101, Clean City, CC 12345</p>
+                  <p>Queens Rd, Shivaji Nagar</p>
+                  <p> Bangalore, Karnataka 560001</p>
                 </div>
               </div>
 
